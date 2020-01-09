@@ -1,0 +1,87 @@
+<section class="banner-area" id="home">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div
+      class="row fullscreen d-flex align-items-center justify-content-center"
+    >
+      <div class="banner-content col-lg-7 col-md-6 ">
+        <h6 class="text-white ">xxxxxxxx</h6>
+        <h1 class="text-white text-uppercase">
+          ABC - Cùng bạn trên mọi hành trình
+        </h1>
+        <p class="pt-20 pb-20 text-white">
+          Cho phép khách hàng có nhu cầu thuê xe tự lái (ô tô, xe máy) có thể
+          kết nối với các đơn vị cho thuê xe trên khắp cả nước thông qua
+          website.
+        </p>
+      </div>
+      <div class="col-lg-5  col-md-6 header-right">
+        <h4 class="text-white pb-30">Đặt xe ngay hôm nay!</h4>
+        <form [formGroup]="formSearchCar" class="form">
+          <div class="form-group row">
+            <div class="col-md-12">
+              <mat-form-field class="form-search-car-full no-line">
+                <mat-label>Chọn loại xe</mat-label>
+                <mat-select formControlName="typeVehicle">
+                  <mat-option
+                    *ngFor="let option of typeVehicle"
+                    [value]="option.id"
+                  >
+                    {{ option.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <mat-form-field class="form-search-car-full no-line">
+                <mat-label>Chọn địa điểm</mat-label>
+                <mat-select formControlName="location">
+                  <mat-option
+                    *ngFor="let location of locations"
+                    [value]="location.id"
+                  >
+                    {{ location.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <mat-form-field class="form-search-car-full no-line">
+                <input matInput [matDatepicker]="picker1" placeholder="Choose a date" formControlName="startDate" class="mat-select-content">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <mat-form-field class="form-search-car-full no-line">
+                <input matInput [matDatepicker]="picker2" placeholder="Choose a date" formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+        <!-- [routerLink]="'/cars'" -->
+        <div class="form-group row">
+          <div class="col-md-12">
+            <button
+              type="reset"
+              class="btn btn-default btn-lg btn-block text-center text-uppercase"
+              (click)="searchCar()"
+            >
+              Tìm xe
+            </button>
+            <p>{{ this.formSearchCar.value | json }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

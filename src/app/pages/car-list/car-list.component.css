@@ -1,0 +1,18 @@
+.form-search-car-full {
+  background: white;
+  border-radius: 4px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 46px;
+}
+
+/* ::ng-deep .no-line .mat-form-field-underline {
+  display: none;
+} */
+::ng-deep .mat-select-value-text {
+  margin-left: 20px;   
+}
+.mat-tab-body-content {
+  overflow: hidden !important
+}
