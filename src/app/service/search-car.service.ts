@@ -9,10 +9,19 @@ import { retry, catchError } from "rxjs/operators";
 export class SearchCarService {
   // const httpOptions = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
   constructor(private http: HttpClient) {}
-  addHero(hero: any): Observable<any> {
+  searchCar(info: any): Observable<any> {
     return this.http
-      .post<any>("https://fake-rest-api-nodejs.herokuapp.com/products", hero)
+      .post<any>("https://car-rental-202001.herokuapp.com/car", info)
       .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getCatalog(){
+    // return this.http
+    //   .get<any>("https://car-rental-202001.herokuapp.com/catalog-bike");
+  }
+  getLocation(){
+    return this.http
+      .get<any>("https://car-rental-202001.herokuapp.com/locations");
   }
   handleError(error) {
     let errorMessage = "";

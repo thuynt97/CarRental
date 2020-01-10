@@ -25,6 +25,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducer } from './common/store.reducer';
+import {MatSliderModule,  MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { reducer } from './common/store.reducer';
         }
       }
     ),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    MatSliderModule,
+    MatCheckboxModule
   ],
   providers: [
     MatDatepickerModule

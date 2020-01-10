@@ -3,8 +3,12 @@ import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
 import * as dataVehicle from "../../common/data";
 import { SearchCarService } from "src/app/service/search-car.service";
 import { Store } from "@ngrx/store";
-import { setStartDate, setEndDate } from "src/app/common/store.reducer";
-import { Router } from '@angular/router';
+import {
+  setStartDate,
+  setEndDate,
+  setLocation
+} from "src/app/common/store.reducer";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-search-car",
@@ -19,7 +23,8 @@ export class SearchCarComponent implements OnInit {
     endDate: new FormControl()
   });
   typeVehicle = dataVehicle.type;
-  locations = dataVehicle.location;
+  catalogs: []= [];
+  locations: any[] = [];
 
   constructor(
     private store: Store<any>,
@@ -27,30 +32,23 @@ export class SearchCarComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
-  saveDateToStore(startDate, endDate) {
+  ngOnInit() {
+    // this.searchCarService.getCatalog().subscribe((res) => console.log(res));
+    this.searchCarService.getLocation().subscribe((res) => console.log(res));
+  }
+  saveDateToStore(location, startDate, endDate) {
+    this.store.dispatch(setLocation({ location }));
     this.store.dispatch(setStartDate({ startDate }));
     this.store.dispatch(setEndDate({ endDate }));
   }
   searchCar() {
     console.log(this.formSearchCar.value);
     this.saveDateToStore(
+      this.formSearchCar.value.location,
       this.formSearchCar.value.startDate,
       this.formSearchCar.value.endDate
     );
+    this.searchCarService.searchCar(this.formSearchCar.value).subscribe((res) => console.log(res));
     this.router.navigateByUrl("/cars");
-    // this.searchCarService.addHero({
-    //   "id": "aaa",
-    //   "name": "Leeks - Large",
-    //   "thumbnail": "https://robohash.org/architectodoloresquo.jpg?size=350x200&set=set1",
-    //   "price": 150.05,
-    //   "quantity": 87,
-    //   "status": true
-    // }).subscribe((res) => console.log(res));
   }
-  // updateOrders(event) {
-  //   // const index = this.typeVehicle.find(item => item.id == event.target.value);
-  //   console.log(event);
-  //   // console.log(index);
-  // }
 }

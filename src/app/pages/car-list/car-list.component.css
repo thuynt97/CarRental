@@ -7,12 +7,27 @@
   height: 46px;
 }
 
-/* ::ng-deep .no-line .mat-form-field-underline {
-  display: none;
-} */
 ::ng-deep .mat-select-value-text {
   margin-left: 20px;   
 }
 .mat-tab-body-content {
   overflow: hidden !important
+}
+.mat-select-content {
+  margin-left: 5%;
+  color: black;
+}
+mat-slider {
+  width: 84%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+.tp-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+.tp-margin {
+  margin: 30px;
 }
