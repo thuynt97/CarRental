@@ -1,0 +1,10 @@
+.my-class .mat-dialog-container{
+
+  border-radius: 10px;
+  background: lightcyan;
+  color: #039be5;
+}
+.login {
+  color: #ffffff;
+  cursor: pointer;
+}

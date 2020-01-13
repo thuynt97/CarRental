@@ -6,11 +6,13 @@ import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CarRentalGuideComponent } from './pages/car-rental-guide/car-rental-guide.component';
+import { RegisterUserComponent } from './pages/register-user/register-user.component';
 
 const routes: Routes = [
   
   { path: '', component: SearchCarComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterUserComponent},
   { path: 'cars', component: CarListComponent},
   { path: 'car-detail', component: CarDetailComponent},
   { path: 'car-rental-guide', component: CarRentalGuideComponent},

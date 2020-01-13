@@ -26,6 +26,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducer } from './common/store.reducer';
 import {MatSliderModule,  MatCheckboxModule} from '@angular/material';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from 'ngx-mat-datetime-picker';
+import {MatDialogModule} from '@angular/material/dialog';
+import {
+  MatCardModule,
+  MatButtonModule
+} from '@angular/material';
+import { TokenStorage } from './common/token.storage';
+import { RegisterUserComponent } from './pages/register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +47,7 @@ import {MatSliderModule,  MatCheckboxModule} from '@angular/material';
     PageNotFoundComponent,
     LoginComponent,
     CarRentalGuideComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,7 @@ import {MatSliderModule,  MatCheckboxModule} from '@angular/material';
     HttpClientModule,
     MatTabsModule,
     StoreModule.forRoot(
-      { dates: reducer },
+      { datas: reducer },
       {
         runtimeChecks: {
           strictStateImmutability: true,
@@ -64,10 +73,17 @@ import {MatSliderModule,  MatCheckboxModule} from '@angular/material';
     ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     MatSliderModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    MatDialogModule,
+    MatCardModule,
+    MatButtonModule
+
   ],
   providers: [
-    MatDatepickerModule
+    MatDatepickerModule,
+    TokenStorage
   ],
   bootstrap: [AppComponent]
 })

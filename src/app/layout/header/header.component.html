@@ -11,10 +11,17 @@
         <li class="menu-active">
           <a [routerLink]="'/car-rental-guide'">Hướng dẫn</a>
         </li>
-        <li class="menu-active">
-          <a href="">Đăng nhập</a>
+        <li class="menu-active login">
+          <a (click)="openDialog()" *ngIf="!currentUser">Đăng nhập</a>
+          
         </li>
-        <li><a href="">Đăng ký</a></li>
+      <li class="menu-has-children login"><a  *ngIf="currentUser">{{currentUser.username}}</a>
+          <ul>
+            <li><a href="">Thông tin cá nhân</a></li>
+            <li><a href="" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>	
+        <li class="menu-active"><a [routerLink]="'/register'">Đăng ký</a></li>
       </ul>
     </nav>
   </div>

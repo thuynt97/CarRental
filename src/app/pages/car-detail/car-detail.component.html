@@ -5,7 +5,7 @@
     <div class="row d-flex align-items-center justify-content-center">
       <div class="about-content col-lg-12">
         <h1 class="text-white">
-          Car Detail
+          Thông tin xe chi tiết
         </h1>
       </div>
     </div>
@@ -19,16 +19,12 @@
     <div class="row">
       <div class="col-lg-8 align-items-center single-model item">
         <div class="model-right">
-          <img class="img-fluid" src="../../assets/img/car.jpg" alt="" />
+          <img class="img-fluid" [src]="vehicleDetail.url" />
         </div>
         <div class="model-left">
           <div class="title justify-content-between d-flex">
-            <h4 class="mt-20">Audi 3000 msi</h4>
+            <h4 class="mt-20">{{ vehicleDetail.name }}</h4>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
           <p>
             Capacity : 04 Person <br />
             Doors : 04 <br />
@@ -38,50 +34,25 @@
         </div>
       </div>
       <div class="col-lg-4 sidebar">
-        <div class="single-widget protfolio-widget">
-          <h4>Giá cả và thủ tục</h4>
+        <div class="single-widget">
+          <h4 class="protfolio-widget text-uppercase">Giá cả và thủ tục</h4>
           <div class="">
             <h4 class="text-white pb-30">Đặt xe ngay hôm nay!</h4>
-            <div class="form" role="form" autocomplete="off">
-              <div class="form-group">
-                <select class="form-control" id="sel1">
-                  <option value="" disabled selected hidden>Chọn địa điểm</option>
-                  <option>Hà Nội</option>
-                  <option>TP. Hồ Chí Minh</option>
-                </select>
-              </div>
+            <div class="form">
               <div class="form-group row">
                 <div class="col-md-12">
-                  <div class="input-group dates-wrap">
-                    <input
-                      id="datepicker"
-                      class="dates form-control"
-                      placeholder="Date & time"
-                      type="text"
-                    />
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"
-                        ><span class="lnr lnr-calendar-full"></span
-                      ></span>
-                    </div>
-                  </div>
+                  <p>Địa điểm nhận xe: {{ vehicleDetail.showroomName }}</p>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <p>Thời gian nhận xe: {{ startDate }}</p>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <div class="input-group dates-wrap">
-                    <input
-                      id="datepicker2"
-                      class="dates form-control"
-                      placeholder="Date & time"
-                      type="text"
-                    />
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"
-                        ><span class="lnr lnr-calendar-full"></span
-                      ></span>
-                    </div>
-                  </div>
+                  <p>Thời gian trả xe: {{ endDate }}</p>
                 </div>
               </div>
             </div>
@@ -89,9 +60,9 @@
           <div class="form-group row">
             <div class="col-md-12">
               <button
-                type="reset"
+                type="button"
                 class="btn primary-btn btn-lg btn-block text-center text-uppercase"
-                [routerLink]="'/cars'"
+                (click)="bookCar()"
               >
                 Đặt xe
               </button>

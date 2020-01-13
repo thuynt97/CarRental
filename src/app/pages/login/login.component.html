@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="text-center" [formGroup]="formLogin">
+  <p class="h4 mb-4">Đăng nhập</p>
+
+  <input
+    type="email"
+    id="defaultLoginFormEmail"
+    class="form-control mb-4"
+    placeholder="E-mail"
+    formControlName="username"
+  />
+
+  <input
+    type="password"
+    id="defaultLoginFormPassword"
+    class="form-control mg-bottom"
+    placeholder="Password"
+    formControlName="password"
+  />
+
+  <button
+    mdbBtn
+    block="true"
+    class=" form-control genric-btn info radius mb-4"
+    type="submit"
+    (click)="login()"
+  >
+    Đăng nhập
+  </button>
+  <button
+  mdbBtn
+  block="true"
+  class="form-control genric-btn info radius mb-4"
+  type="submit"
+  (click)="cancel()"
+>
+  Quay lại
+</button>
+  <p>
+    Not a member?
+    <a href="">Register</a>
+  </p>
+</div>
