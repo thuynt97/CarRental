@@ -9,13 +9,13 @@ import { VehicleDetail } from "../model/VehicleDetail";
 export class CarListService {
   constructor(private http: HttpClient) {}
   getListCarDetailById(id: number): Observable<VehicleDetail> {
-    const url = `https://car-rental-202001.herokuapp.com/car?id=` + id;
+    const url = `https://car-rental-2020.herokuapp.com/car?id=` + id;
 
     return this.http.get<any>(url);
   }
 
   getListBikeDetailById(id: number): Observable<VehicleDetail> {
-    const url = `https://car-rental-202001.herokuapp.com/bike?id=` + id;
+    const url = `https://car-rental-2020.herokuapp.com/bike?id=` + id;
 
     return this.http.get<any>(url);
   }

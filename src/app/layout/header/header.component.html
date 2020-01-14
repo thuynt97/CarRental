@@ -17,11 +17,12 @@
         </li>
       <li class="menu-has-children login"><a  *ngIf="currentUser">{{currentUser.username}}</a>
           <ul>
-            <li><a href="">Thông tin cá nhân</a></li>
+            <li><a [routerLink]="'/user-info'">Thông tin cá nhân</a></li>
+            <li><a [routerLink]="'/change-password'">Đổi mật khẩu</a></li>
             <li><a href="" (click)="logout()">Logout</a></li>
           </ul>
         </li>	
-        <li class="menu-active"><a [routerLink]="'/register'">Đăng ký</a></li>
+        <li class="menu-active"><a [routerLink]="'/register'"  *ngIf="!currentUser">Đăng ký</a></li>
       </ul>
     </nav>
   </div>

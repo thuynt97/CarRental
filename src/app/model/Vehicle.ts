@@ -1,4 +1,4 @@
-export class Vehicle {
+export interface Vehicle {
   "gear": number;
   "id": number;
   "image": string;

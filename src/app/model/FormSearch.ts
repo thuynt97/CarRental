@@ -1,4 +1,4 @@
-export class FormSearch {
+export interface FormSearch {
   "cata": string;
   "gear": number;
   "location": number;

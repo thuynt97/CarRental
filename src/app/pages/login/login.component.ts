@@ -39,12 +39,7 @@ export class LoginComponent implements OnInit {
         if (data) {
           this.tokenStorage.saveToken(data.token);
           this.tokenStorage.saveUser(JSON.stringify(data.userDTO));
-          console.log(data);
-          console.log(data.userDTO);
-          
           this.dialogRef.close();
-        } else {
-          
         }
       });
 

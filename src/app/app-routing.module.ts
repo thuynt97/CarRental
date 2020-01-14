@@ -7,11 +7,15 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { LoginComponent } from './pages/login/login.component';
 import { CarRentalGuideComponent } from './pages/car-rental-guide/car-rental-guide.component';
 import { RegisterUserComponent } from './pages/register-user/register-user.component';
+import { UserInfoComponent } from './pages/user-info/user-info.component';
+import { ChangePassWordComponent } from './pages/change-pass-word/change-pass-word.component';
 
 const routes: Routes = [
   
   { path: '', component: SearchCarComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'user-info', component: UserInfoComponent},
+  { path: 'change-password', component:ChangePassWordComponent},
   { path: 'register', component: RegisterUserComponent},
   { path: 'cars', component: CarListComponent},
   { path: 'car-detail', component: CarDetailComponent},

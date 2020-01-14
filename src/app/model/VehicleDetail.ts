@@ -1,4 +1,4 @@
-export class VehicleDetail {
+export interface VehicleDetail {
   "id": number;
   "consume": number;
   "deposit": number;

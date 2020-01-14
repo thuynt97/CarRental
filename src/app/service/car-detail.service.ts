@@ -20,6 +20,6 @@ export class CarDetailService {
   bookCar(param: FormBook): Observable<any> {
 
     return this.http
-      .post<any>("https://car-rental-202001.herokuapp.com/book", param, this.httpOptions)
+      .post<any>("https://car-rental-2020.herokuapp.com/book", param, this.httpOptions)
   }
 }

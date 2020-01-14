@@ -1,4 +1,4 @@
-export class FormBook {
+export interface FormBook {
   "endDate": string;
   "startDate": string;
   "type": number;

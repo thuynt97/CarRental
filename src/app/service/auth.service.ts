@@ -12,6 +12,6 @@ export class AuthService {
   checkLogin(user: User): Observable<any> {
     
     return this.http
-      .post<any>("https://car-rental-202001.herokuapp.com/users/login", user);
+      .post<any>("https://car-rental-2020.herokuapp.com/users/login", user);
   }
 }

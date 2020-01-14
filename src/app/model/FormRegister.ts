@@ -1,4 +1,4 @@
-export class FormRegister {
+export interface FormRegister {
   "address": string;
   "email": string;
   "password": string;

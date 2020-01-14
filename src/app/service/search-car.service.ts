@@ -13,28 +13,28 @@ export class SearchCarService {
   constructor(private http: HttpClient) {}
   getListCar(info: FormSearch): Observable<Vehicle[]> {
     return this.http
-      .post<any>("https://car-rental-202001.herokuapp.com/car", info)
+      .post<any>("https://car-rental-2020.herokuapp.com/car", info)
       .pipe(retry(1), catchError(this.handleError));
   }
   getListBike(info: FormSearch): Observable<Vehicle[]> {
     return this.http
-      .post<any>("https://car-rental-202001.herokuapp.com/bike", info)
+      .post<any>("https://car-rental-2020.herokuapp.com/bike", info)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getCatalogCar() {
     return this.http.get<any>(
-      "https://car-rental-202001.herokuapp.com/catalog-car"
+      "https://car-rental-2020.herokuapp.com/catalog-car"
     );
   }
   getCatalogBike() {
     return this.http.get<any>(
-      "https://car-rental-202001.herokuapp.com/catalog-bike"
+      "https://car-rental-2020.herokuapp.com/catalog-bike"
     );
   }
   getLocation() {
     return this.http.get<any>(
-      "https://car-rental-202001.herokuapp.com/locations"
+      "https://car-rental-2020.herokuapp.com/locations"
     );
   }
   handleError(error) {
