@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { FormRegister } from '../model/FormRegister';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  register(param: any): Observable<any> {
+  register(param: FormRegister): Observable<any> {
     return this.http
-      .post<any>("https://car-rental-202001.herokuapp.com/bike", param)
+      .post<any>("https://car-rental-202001.herokuapp.com/users/register", param)
   }
 }

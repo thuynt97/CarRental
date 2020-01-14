@@ -1,4 +1,4 @@
-<section class="banner-area" id="home">
+<section class="banner-area">
   <div class="overlay overlay-bg"></div>
   <div class="container">
     <div
@@ -22,7 +22,7 @@
             <div class="col-md-12">
               <mat-form-field class="form-search-car-full no-line">
                 <mat-label>Chọn loại xe</mat-label>
-                <mat-select formControlName="typeVehicle" class="mat-select-content">
+                <mat-select formControlName="typeVehicle" class="mat-select-content" required>
                   <mat-option
                     *ngFor="let option of typeVehicle"
                     [value]="option.id"
@@ -38,7 +38,7 @@
             <div class="col-md-12">
               <mat-form-field class="form-search-car-full no-line">
                 <mat-label>Chọn địa điểm</mat-label>
-                <mat-select formControlName="location" class="mat-select-content">
+                <mat-select formControlName="location" class="mat-select-content" required>
                   <mat-option
                     *ngFor="let location of locations"
                     [value]="location.id"
@@ -52,7 +52,7 @@
           <div class="form-group row">
             <div class="col-md-12">
               <mat-form-field class="form-search-car-full no-line">
-                <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Chọn ngày giờ bắt đầu" formControlName="startDate" class="mat-select-content" >
+                <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Chọn ngày giờ bắt đầu" formControlName="startDate" class="mat-select-content" required>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
               </mat-form-field>
@@ -62,7 +62,7 @@
           <div class="form-group row">
             <div class="col-md-12">
               <mat-form-field class="form-search-car-full no-line">
-                <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Chọn ngày giờ kết thúc" formControlName="endDate" class="mat-select-content">
+                <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Chọn ngày giờ kết thúc" formControlName="endDate" class="mat-select-content" required>
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <ngx-mat-datetime-picker #picker2></ngx-mat-datetime-picker>
               </mat-form-field>
@@ -73,8 +73,9 @@
         <div class="form-group row">
           <div class="col-md-12">
             <button
-              type="reset"
+              type="button"
               class="btn btn-default btn-lg btn-block text-center text-uppercase"
+              [disabled]="formSearchCar.invalid"
               (click)="search()"
             >
               Tìm xe

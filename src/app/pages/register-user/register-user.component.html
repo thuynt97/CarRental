@@ -15,8 +15,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 post-list blog-post-list">
-        <div
-          class="text-center border border-light p-5"
+        <form
+          class="text-center border border-light p-5 form"
           [formGroup]="formRegister"
         >
           <input
@@ -28,7 +28,6 @@
 
           <input
             type="email"
-            id="defaultRegisterFormEmail"
             class="form-control mb-4"
             placeholder="Địa chỉ E-mail"
             formControlName="email"
@@ -36,17 +35,11 @@
 
           <input
             type="password"
-            class="form-control"
+            class="form-control mb-4"
             placeholder="Mật khẩu"
             aria-describedby="defaultRegisterFormPasswordHelpBlock"
             formControlName="password"
           />
-          <small
-            id="defaultRegisterFormPasswordHelpBlock"
-            class="form-text text-muted mb-4"
-          >
-            At least 8 characters and 1 digit
-          </small>
 
           <input
             type="text"
@@ -63,16 +56,19 @@
             formControlName="address"
           />
 
-          <button
-            mdbBtn
-            block="true"
-            class="btn btn-default btn-lg btn-block text-center text-uppercase"
-            type="button"
-            (click)="register()"
-          >
-            Đăng ký
-          </button>
-        </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <button
+                type="button"
+                class="btn btn-default btn-lg btn-block text-center text-uppercase"
+                [disabled]="formRegister.invalid"
+                (click)="register()"
+              >
+                Tìm xe
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

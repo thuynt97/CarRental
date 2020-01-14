@@ -31,12 +31,16 @@ export class CarDetailComponent implements OnInit {
     });
   }
   bookCar(){
+    console.log(this.vehicleDetail);
+    
     const param :FormBook = {
       endDate:this.endDate,
       startDate: this.startDate,
       type: this.typeVehicle,
-      vehicle_id: 1
+      vehicle_id: this.vehicleDetail.id
     }
+    console.log(param);
+    
     this.carDetailService.bookCar(param).subscribe(res => {
       console.log(res);
       if(res == "OK"){

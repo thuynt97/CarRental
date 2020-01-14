@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
+import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
 import * as dataVehicle from "../../common/data";
 import { SearchCarService } from "src/app/service/search-car.service";
 import { Store } from "@ngrx/store";
@@ -23,11 +23,11 @@ import { Vehicle } from 'src/app/model/Vehicle';
   styleUrls: ["./search-car.component.css"]
 })
 export class SearchCarComponent implements OnInit {
-  formSearchCar: FormGroup = new FormGroup({
-    typeVehicle: new FormControl(),
-    location: new FormControl(),
-    startDate: new FormControl(new Date()),
-    endDate: new FormControl(new Date())
+  formSearchCar = this.fb.group({
+    typeVehicle: ['', Validators.required],
+    location:  ['', Validators.required],
+    startDate: [new Date(), Validators.required],
+    endDate: [new Date(), Validators.required]
   });
 
   typeVehicle = dataVehicle.type;
@@ -37,7 +37,8 @@ export class SearchCarComponent implements OnInit {
   constructor(
     private store: Store<any>,
     public searchCarService: SearchCarService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {}
 
    ngOnInit() {

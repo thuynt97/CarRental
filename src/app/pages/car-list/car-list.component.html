@@ -47,9 +47,10 @@
           <mat-tab-group
             headerPosition="above"
             [selectedIndex]="indexTabChange"
+            (selectedTabChange)="tabChanged($event)"
             class="example-stretched-tabs mat-elevation-z4"
           >
-            <mat-tab label="Ô tô">
+            <mat-tab label="car">
               <div
                 [formGroup]="advancedCarForm"
                 class="form mat-tab-body-content"
@@ -189,7 +190,7 @@
                 </div>
               </div>
             </mat-tab>
-            <mat-tab label="Xe máy">
+            <mat-tab label="motorbike">
               <div
                 [formGroup]="advancedBikeForm"
                 class="form mat-tab-body-content"
@@ -292,6 +293,19 @@
                         #picker4
                       ></ngx-mat-datetime-picker>
                     </mat-form-field>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <mat-slider
+                      [max]="max"
+                      [min]="min"
+                      [step]="step"
+                      thumbLabel
+                      formControlName="price"
+                      (change)="getListBike($event.value)"
+                    >
+                    </mat-slider>
                   </div>
                 </div>
               </div>

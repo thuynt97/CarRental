@@ -1,3 +1,7 @@
 .pd-section-gap {
   padding: 30px 0;
 }
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

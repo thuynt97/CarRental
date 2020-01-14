@@ -1,4 +1,5 @@
 export class VehicleDetail {
+  "id": number;
   "consume": number;
   "deposit": number;
   "fuel": number;

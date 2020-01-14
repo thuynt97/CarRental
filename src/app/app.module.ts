@@ -34,6 +34,7 @@ import {
 } from '@angular/material';
 import { TokenStorage } from './common/token.storage';
 import { RegisterUserComponent } from './pages/register-user/register-user.component';
+import { UserInfoComponent } from './pages/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { RegisterUserComponent } from './pages/register-user/register-user.compo
     LoginComponent,
     CarRentalGuideComponent,
     RegisterUserComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

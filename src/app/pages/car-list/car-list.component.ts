@@ -51,7 +51,7 @@ export class CarListComponent implements OnInit {
   endDate: Date;
   defaultLocation;
 
-  max = 100;
+  max = 500000;
   min = 0;
   step = 1;
 
@@ -84,6 +84,11 @@ export class CarListComponent implements OnInit {
       this.listVehicle = data.listVehicle;
       this.locations = data.locations;
       this.setDataForm(data);
+      if (this.typeVehicle === 1) {
+        this.indexTabChange = 0;
+      } else if (this.typeVehicle === 2) {
+        this.indexTabChange = 1;
+      }
     });
     const location = this.locations.find(
       location => location.id === this.defaultLocation
@@ -91,22 +96,14 @@ export class CarListComponent implements OnInit {
     if (location) {
       this.locationName = location.name;
     }
-    if (this.typeVehicle === 1) {
-      this.indexTabChange = 0;
-    } else if (this.typeVehicle === 2) {
-      this.indexTabChange = 1;
-    }
   }
   setDataForm(data) {
-    if (data.typeVehicle) {
-      this.advancedCarForm.get("location").setValue(data.location);
-      this.advancedCarForm.get("startDate").setValue(new Date(data.startDate));
-      this.advancedCarForm.get("endDate").setValue(new Date(data.endDate));
-    } else if (data.typeVehicle === 2) {
-      this.advancedBikeForm.get("location").setValue(data.location);
-      this.advancedBikeForm.get("startDate").setValue(new Date(data.startDate));
-      this.advancedBikeForm.get("endDate").setValue(new Date(data.endDate));
-    }
+    this.advancedCarForm.get("location").setValue(data.location);
+    this.advancedBikeForm.get("location").setValue(data.location);
+    this.advancedCarForm.get("startDate").setValue(new Date(data.startDate));
+    this.advancedCarForm.get("endDate").setValue(new Date(data.endDate));
+    this.advancedBikeForm.get("startDate").setValue(new Date(data.startDate));
+    this.advancedBikeForm.get("endDate").setValue(new Date(data.endDate));
   }
   getDetailCar(id: number) {
     if (this.typeVehicle === 1) {
@@ -125,15 +122,13 @@ export class CarListComponent implements OnInit {
 
   getListCar() {
     const formValue = this.advancedCarForm.value;
-    
-    
 
     const advancedCarForm: FormSearch = {
       cata: formValue.catalogueCar ? formValue.catalogueCar : "",
       gear: formValue.gearCar ? formValue.gearCar : 0,
       location: formValue.location ? formValue.location : 0,
-      moneyHigh: 500000,
-      moneyLow: 0,
+      moneyHigh: formValue.price ? formValue.price : this.max,
+      moneyLow: this.min,
       seat: formValue.seatCar ? formValue.seatCar : 0,
       startDate: formValue.startDate
         ? moment(formValue.startDate.toISOString()).format(
@@ -150,13 +145,15 @@ export class CarListComponent implements OnInit {
   }
   getListBike() {
     const formValue = this.advancedBikeForm.value;
+    console.log(formValue);
+
     const advancedBikeForm: FormSearch = {
-      cata: formValue.catalogueCar ? formValue.catalogueCar : "",
-      gear: formValue.gearCar ? formValue.gearCar : 0,
+      cata: formValue.catalogueBike ? formValue.catalogueBike : "",
+      gear: formValue.gearBike ? formValue.gearBike : 0,
       location: formValue.location ? formValue.location : 0,
-      moneyHigh: 2000000,
-      moneyLow: 0,
-      seat: formValue.seatCar ? formValue.seatCar : 0,
+      moneyHigh: formValue.price ? formValue.price : this.max,
+      moneyLow: this.min,
+      seat: 0,
       startDate: formValue.startDate
         ? moment(formValue.startDate.toISOString()).format(
             "YYYY-MM-DD HH-MM-SS"
@@ -175,10 +172,9 @@ export class CarListComponent implements OnInit {
   }
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     console.log(tabChangeEvent.index);
-    if(tabChangeEvent.index === 0) {
+    if (tabChangeEvent.index === 0) {
       this.getListCar();
-
-    } else if(tabChangeEvent.index === 1) {
+    } else if (tabChangeEvent.index === 1) {
       this.getListBike();
     }
   }

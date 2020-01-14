@@ -4,7 +4,7 @@ import { AuthService } from "src/app/service/auth.service";
 import { TokenStorage } from "src/app/common/token.storage";
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { User } from 'src/app/model/User';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { UserInfo } from 'src/app/model/UserInfo';
 
 @Component({
@@ -14,14 +14,15 @@ import { UserInfo } from 'src/app/model/UserInfo';
 })
 export class LoginComponent implements OnInit {
 
-  formLogin: FormGroup = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl(),
+  formLogin = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(4)]],
   });
 
   userCurrent: UserInfo;
   constructor(
     private router: Router,
+    private fb: FormBuilder,
     private authService: AuthService,
     private tokenStorage: TokenStorage,
     public dialogRef: MatDialogRef<LoginComponent>,

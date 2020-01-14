@@ -123,11 +123,11 @@ export const gearCar = [
 export const gearBike = [
   {
     id: 1,
-    name: "số"
+    name: "ga"
   },
   {
     id: 2,
-    name: "ga"
+    name: "số"
   },
   {
     id: 3,
