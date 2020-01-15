@@ -53,6 +53,10 @@ export class CarDetailComponent implements OnInit {
         console.log(res);
         if (res) {
           this.vehiclesConfirm.push(res.vehicle);
+          const formVehicle = {
+            vehiclesConfirm: this.vehiclesConfirm,
+            startDate: res.startDate
+          }
           window.localStorage.setItem("VehiclesConfirm", JSON.stringify(this.vehiclesConfirm));
           this.router.navigateByUrl("/history-car");
         }
