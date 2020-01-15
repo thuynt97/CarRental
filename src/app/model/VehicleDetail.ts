@@ -5,5 +5,6 @@ export interface VehicleDetail {
   "fuel": number;
   "name": string;
   "showroomName": string;
+  "showroom"?: string;
   "url": string;
 }
