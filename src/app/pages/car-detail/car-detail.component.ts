@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { LoginComponent } from "../login/login.component";
 import { TokenStorage } from "src/app/common/token.storage";
+import { setVehicleConfirm } from 'src/app/common/store.reducer';
 
 @Component({
   selector: "app-car-detail",
@@ -21,6 +22,7 @@ export class CarDetailComponent implements OnInit {
   startDate: string;
   endDate: string;
   typeVehicle: number;
+  vehiclesConfirm: any[] = [];
   constructor(
     private store: Store<any>,
     public carDetailService: CarDetailService,
@@ -51,12 +53,14 @@ export class CarDetailComponent implements OnInit {
       this.carDetailService.bookCar(param).subscribe(res => {
         console.log(res);
         if (res) {
+          // const dialogRef = this.
+          this.vehiclesConfirm.push(res.vehicle);
+          console.log(this.vehiclesConfirm);
+          window.localStorage.setItem("VehiclesConfirm", JSON.stringify(this.vehiclesConfirm));
           this.router.navigateByUrl("/");
         }
       });
     } else {
-      console.log("chua login");
-
       const dialogRef = this.dialog.open(LoginComponent, {
         width: "350px",
         height: "450px"

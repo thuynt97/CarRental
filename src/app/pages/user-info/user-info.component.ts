@@ -65,6 +65,7 @@ export class UserInfoComponent implements OnInit {
       },
       error => {
         console.log(error);
+        
       }
     );
   }

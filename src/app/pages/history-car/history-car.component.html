@@ -1,0 +1,47 @@
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">
+          Thông tin đặt xe
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-posts-area section-gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 post-list blog-post-list">
+        <div class="single-post">
+          <div class="whole-wrap" >
+            <div class="container" *ngFor="let vehicle of vehiclesConfirm">
+              <div class="single-feature">
+                <div class="row align-items-center single-model item">
+                  <div class="col-lg-6 model-left">
+                    <img
+                      class="img-fluid"
+                      [src]="vehicle.url"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-lg-6 model-right">
+                    <p>
+                     {{vehicle.name}} </p>
+                     <p>Giá tiền: {{vehicle.price}}/km</p>
+                     <p>Địa chỉ nhận xe: {{vehicle.showroomName}}</p>
+                     <p>Ngày thuê xe: {{vehicle.startDate | date: 'dd/MM/yyyy'}}</p>
+                     <p>Ngày trả xe: {{vehicle.endDate | date: 'dd/MM/yyyy'}}</p>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
