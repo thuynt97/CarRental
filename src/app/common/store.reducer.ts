@@ -10,6 +10,7 @@ export interface State {
   listVehicle: Vehicle[];
   locations: any[];
   vehicleDetail: VehicleDetail;
+  vehicleConfirm: any[];
 }
 export const initialState: State =
   localStorage.getItem("state") != null
@@ -21,7 +22,8 @@ export const initialState: State =
         endDate: "",
         listVehicle: [],
         locations: [],
-        vehicleDetail: {}
+        vehicleDetail: {},
+        vehicleConfirm: []
       };
 
 export const setTypeVehicle = createAction(
@@ -48,10 +50,15 @@ export const setLocations = createAction(
   "Set list location",
   props<{ locations: [] }>()
 );
+export const setVehicleConfirm = createAction(
+  "Set history vehicle ",
+  props<{ vehicleConfirm: [] }>()
+);
 export const setVehicleDetail = createAction(
   "Set vehicle detail",
   props<{ vehicleDetail: {} }>()
 );
+
 
 const dataReducer = createReducer(
   initialState,
@@ -89,7 +96,12 @@ const dataReducer = createReducer(
     let updateState = { ...state, vehicleDetail };
     localStorage.setItem("state", JSON.stringify(updateState));
     return updateState;
-  })
+  }),
+  on(setVehicleConfirm, (state, { vehicleConfirm }) => {
+    let updateState = { ...state, vehicleConfirm };
+    localStorage.setItem("state", JSON.stringify(updateState));
+    return updateState;
+  }),
 );
 export function reducer(state: State | undefined, action: Action) {
   return dataReducer(state, action);

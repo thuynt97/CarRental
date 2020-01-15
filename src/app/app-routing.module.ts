@@ -9,6 +9,7 @@ import { CarRentalGuideComponent } from './pages/car-rental-guide/car-rental-gui
 import { RegisterUserComponent } from './pages/register-user/register-user.component';
 import { UserInfoComponent } from './pages/user-info/user-info.component';
 import { ChangePassWordComponent } from './pages/change-pass-word/change-pass-word.component';
+import { HistoryCarComponent } from './pages/history-car/history-car.component';
 
 const routes: Routes = [
   
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'user-info', component: UserInfoComponent},
   { path: 'change-password', component:ChangePassWordComponent},
+  { path: 'history-car', component:HistoryCarComponent},
   { path: 'register', component: RegisterUserComponent},
   { path: 'cars', component: CarListComponent},
   { path: 'car-detail', component: CarDetailComponent},

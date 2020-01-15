@@ -36,6 +36,7 @@ import { TokenStorage } from './common/token.storage';
 import { RegisterUserComponent } from './pages/register-user/register-user.component';
 import { UserInfoComponent } from './pages/user-info/user-info.component';
 import { ChangePassWordComponent } from './pages/change-pass-word/change-pass-word.component';
+import { HistoryCarComponent } from './pages/history-car/history-car.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ChangePassWordComponent } from './pages/change-pass-word/change-pass-wo
     RegisterUserComponent,
     UserInfoComponent,
     ChangePassWordComponent,
+    HistoryCarComponent,
   ],
   imports: [
     BrowserModule,
