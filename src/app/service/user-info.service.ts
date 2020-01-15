@@ -23,7 +23,6 @@ export class UserInfoService {
   constructor(private httpClient: HttpClient) {}
   // Upload image
   uploadImage(fileToUpload: File): Observable<any> {
-    console.log("fileToUpload", fileToUpload);
     return this.httpClient.post(
       this.imgurApiUrl,
       fileToUpload,

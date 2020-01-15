@@ -12,7 +12,6 @@ import { Router } from "@angular/router";
 export class UserInfoComponent implements OnInit {
   formUpdate = this.fb.group({
     username: [""],
-    password: [""],
     email: [""],
     address: [""],
     phone: [""]
@@ -30,11 +29,9 @@ export class UserInfoComponent implements OnInit {
   }
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    console.log("handle input", this.fileToUpload);
   }
 
   updateUser() {
-    console.log(this.formUpdate.value);
 
     this.userInfoService.uploadImage(this.fileToUpload).subscribe(
       res => {
@@ -53,7 +50,6 @@ export class UserInfoComponent implements OnInit {
         };
         this.userInfoService.uploadUser(formUpdate).subscribe(
           res => {
-            console.log(res);
             this.userInfo = res;
             localStorage.setItem("UserCurrent", JSON.stringify(res.userDTO));
             window.location.reload();
@@ -65,7 +61,7 @@ export class UserInfoComponent implements OnInit {
       },
       error => {
         console.log(error);
-        
+
       }
     );
   }

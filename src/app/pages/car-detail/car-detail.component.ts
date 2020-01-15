@@ -40,7 +40,6 @@ export class CarDetailComponent implements OnInit {
     });
   }
   bookCar() {
-    console.log(this.vehicleDetail);
 
     const param: FormBook = {
       endDate: this.endDate,
@@ -53,11 +52,9 @@ export class CarDetailComponent implements OnInit {
       this.carDetailService.bookCar(param).subscribe(res => {
         console.log(res);
         if (res) {
-          // const dialogRef = this.
           this.vehiclesConfirm.push(res.vehicle);
-          console.log(this.vehiclesConfirm);
           window.localStorage.setItem("VehiclesConfirm", JSON.stringify(this.vehiclesConfirm));
-          this.router.navigateByUrl("/");
+          this.router.navigateByUrl("/history-car");
         }
       });
     } else {

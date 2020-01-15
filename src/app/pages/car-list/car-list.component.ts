@@ -70,7 +70,8 @@ export class CarListComponent implements OnInit {
   ngOnInit() {
     this.searchCarService
       .getCatalogCar()
-      .subscribe(catalogs => (this.catalogueCars = catalogs));
+      .subscribe(catalogs => {this.catalogueCars = catalogs;
+      });
     this.searchCarService
       .getCatalogBike()
       .subscribe(catalogs => (this.catalogueBikes = catalogs));
@@ -138,14 +139,12 @@ export class CarListComponent implements OnInit {
             "YYYY-MM-DD HH-MM-SS"
           )
     };
-    console.log(advancedCarForm);
     this.searchCarService
       .getListCar(advancedCarForm)
       .subscribe(res => (this.listVehicle = res));
   }
   getListBike() {
     const formValue = this.advancedBikeForm.value;
-    console.log(formValue);
 
     const advancedBikeForm: FormSearch = {
       cata: formValue.catalogueBike ? formValue.catalogueBike : "",
@@ -162,7 +161,6 @@ export class CarListComponent implements OnInit {
             "YYYY-MM-DD HH-MM-SS"
           )
     };
-    console.log(advancedBikeForm);
     this.searchCarService
       .getListBike(advancedBikeForm)
       .subscribe(res => (this.listVehicle = res));
@@ -171,7 +169,6 @@ export class CarListComponent implements OnInit {
     this.store.dispatch(setVehicleDetail({ vehicleDetail }));
   }
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    console.log(tabChangeEvent.index);
     if (tabChangeEvent.index === 0) {
       this.getListCar();
     } else if (tabChangeEvent.index === 1) {
