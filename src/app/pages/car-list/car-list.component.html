@@ -54,7 +54,7 @@
               <div
                 [formGroup]="advancedCarForm"
                 class="form mat-tab-body-content"
-                (selectedTabChange)="getListCar($event.value)"
+                (selectedTabChange)="getListCar()"
               >
                 <div class="form-group row">
                   <div class="col-md-12">
@@ -62,7 +62,7 @@
                       <mat-label>Chọn số chỗ</mat-label>
                       <mat-select
                         formControlName="seatCar"
-                        (selectionChange)="getListCar($event.value)"
+                        (selectionChange)="getListCar()"
                       >
                         <mat-option
                           *ngFor="let seatCar of seatCars"
@@ -81,7 +81,7 @@
                       <mat-label>Chọn loại động cơ</mat-label>
                       <mat-select
                         formControlName="gearCar"
-                        (selectionChange)="getListCar($event.value)"
+                        (selectionChange)="getListCar()"
                       >
                         <mat-option
                           *ngFor="let gearCar of gearCars"
@@ -99,7 +99,7 @@
                       <mat-label>Chọn hãng xe</mat-label>
                       <mat-select
                         formControlName="catalogueCar"
-                        (selectionChange)="getListCar($event.value)"
+                        (selectionChange)="getListCar()"
                       >
                         <mat-option
                           *ngFor="let catalogueCar of catalogueCars"
@@ -117,7 +117,7 @@
                       <mat-label>Chọn vị trí</mat-label>
                       <mat-select
                         formControlName="location"
-                        (selectionChange)="getListCar($event.value)"
+                        (selectionChange)="getListCar()"
                         [(ngModel)]="defaultLocation"
                       >
                         <mat-option
@@ -140,7 +140,7 @@
                         class="mat-select-content"
                         placeholder="Chọn ngày giờ bắt đầu"
                         [value]="startDate"
-                        (dateChange)="getListCar($event.value)"
+                        (dateChange)="getListCar()"
                       />
                       <mat-datepicker-toggle
                         matSuffix
@@ -162,7 +162,7 @@
                         placeholder="Chọn ngày giờ kết thúc"
                         formControlName="endDate"
                         [value]="endDate"
-                        (dateChange)="getListCar($event.value)"
+                        (dateChange)="getListCar()"
                       />
                       <mat-datepicker-toggle
                         matSuffix
@@ -183,7 +183,7 @@
                       [step]="step"
                       thumbLabel
                       formControlName="price"
-                      (change)="getListCar($event.value)"
+                      (change)="getListCar()"
                     >
                     </mat-slider>
                   </div>
@@ -194,7 +194,7 @@
               <div
                 [formGroup]="advancedBikeForm"
                 class="form mat-tab-body-content"
-                (selectedTabChange)="getListBike($event.value)"
+                (selectedTabChange)="getListBike()"
               >
                 <div class="form-group row">
                   <div class="col-md-12">
@@ -202,7 +202,7 @@
                       <mat-label>Chọn loại động cơ</mat-label>
                       <mat-select
                         formControlName="gearBike"
-                        (selectionChange)="getListBike($event.value)"
+                        (selectionChange)="getListBike()"
                       >
                         <mat-option
                           *ngFor="let gearBike of gearBikes"
@@ -220,7 +220,7 @@
                       <mat-label>Chọn hãng xe</mat-label>
                       <mat-select
                         formControlName="catalogueBike"
-                        (selectionChange)="getListBike($event.value)"
+                        (selectionChange)="getListBike()"
                       >
                         <mat-option
                           *ngFor="let catalogueBike of catalogueBikes"
@@ -238,7 +238,7 @@
                       <mat-label>Chọn vị trí</mat-label>
                       <mat-select
                         formControlName="location"
-                        (selectionChange)="getListBike($event.value)"
+                        (selectionChange)="getListBike()"
                         [(ngModel)]="defaultLocation"
                       >
                         <mat-option
@@ -261,7 +261,7 @@
                         class="mat-select-content"
                         placeholder="Chọn ngày bắt đầu"
                         [value]="startDate"
-                        (dateChange)="getListBike($event.value)"
+                        (dateChange)="getListBike()"
                       />
                       <mat-datepicker-toggle
                         matSuffix
@@ -283,7 +283,7 @@
                         placeholder="Chọn ngày kết thúc"
                         formControlName="endDate"
                         [value]="endDate"
-                        (dateChange)="getListBike($event.value)"
+                        (dateChange)="getListBike()"
                       />
                       <mat-datepicker-toggle
                         matSuffix
@@ -303,7 +303,7 @@
                       [step]="step"
                       thumbLabel
                       formControlName="price"
-                      (change)="getListBike($event.value)"
+                      (change)="getListBike()"
                     >
                     </mat-slider>
                   </div>
